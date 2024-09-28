@@ -8,6 +8,6 @@
 <textarea name="Shader Code" id="shader-code">function main() {
 	const pixelX = input.PixelIndex % input.ResWidth;
 	const pixelY = input.PixelIndex / input.ResWidth;
-	output.PixelColor[0] = input.PixelColor[0] + pixelX;
-	output.PixelColor[1] = input.PixelColor[1] + pixelY;
+	output.PixelColor[0] = input.PixelColor[0] + pixelX * input.random;
+	output.PixelColor[1] = input.PixelColor[1] + pixelY * input.random;
 }</textarea>

@@ -2,9 +2,22 @@ class Shader {
 
 	#code;
 	#function;
+	#binds = {};
 
 	set code (value) {
 		this.#code = value;
+	}
+
+	set function (value) {
+		this.#function = value;
+	}
+
+	bind (name, value) {
+		this.#binds[name] = value;
+	}
+
+	unbind () {
+		this.#binds = {};
 	}
 
 	compile () {
@@ -38,9 +51,8 @@ class Shader {
 				PixelColor: color,
 				PixelIndex: pixelIndex,
 				ResWidth: imageData.width,
-				ResHeight: imageData.height
-				// PixelX: pixelIndex % imageData.width,
-				// PixelY: Math.trunc(pixelIndex / imageData.width)
+				ResHeight: imageData.height,
+				...this.#binds
 			};
 			const output = input;
 
