@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<script src="../../shader2d.js" defer></script>
+	<script src="main.js" defer></script>
+</head>
+<body>
+	<canvas width="300" height="300"></canvas>
+	<br>
+	<a>Canvas Resolution</a>
+	<input type="text" name="Canvas Width" id="canvas-width" value="300">
+	<a>:</a>
+	<input type="text" name="Canvas Height" id="canvas-height" value="300">
+	<button id="resize-canvas">Resize Canvas</button>
+	<br>
+	<button id="button-compile">Recompile</button>
+	<a id="total-time">Total time: ms; Shader time: ms</a>
+	<br>
+	<textarea name="Shader Code" id="shader-code">function main() {
+	const pixelX = input.PixelIndex % input.ResWidth;
+	const pixelY = input.PixelIndex / input.ResWidth;
+	output.PixelColor[0] = input.PixelColor[0] + pixelX * input.random;
+	output.PixelColor[1] = input.PixelColor[1] + pixelY * input.random;
+}</textarea>
+</body>
+</html>
